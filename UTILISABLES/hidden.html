@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+			<title>Digital Blast</title>
+			<link rel="stylesheet" type="text/css" href="Main.css" />
+			<link rel="stylesheet" href="css/reset.css" />
+			<link rel="stylesheet" href="css/960_12_col.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="icon" href="images/favicon.ico" />
+			<link rel="icon" href="images/favicon.png" />
+
+	</head>
+
+	<body>
+	
+<style>
+#test {
+  margin: 2em 0;
+}
+#test > div {
+  padding: 15px;
+  border: solid 5px black;
+  background: #EEE;
+  -webkit-transition: opacity 2s linear;
+  -moz-transition: opacity 2s linear;
+  -o-transition: opacity 2s linear;
+  transition: opacity 2s linear;
+}
+#test > .hidden {
+  opacity: 0;
+}
+#test > .visible {
+  opacity: 1;
+}</style>
+
+<div id="test">  
+  <p>
+    <button type="button">Show element</button>
+    <button type="button">Hide element</button>
+  </p>
+  <div class="hidden">
+    <div id="Photography" class="" style="display:block;">
+    		<div class="ScreenContent">
+    				
+                    <div id="AlbumScreen">
+    						<ul>
+    						  <li data-album="Portrait"><a href="#"><img src="MenuAlbumX.png" alt="Portrait" /></a></li>
+    						  <li data-album="Shadow"><a href="#"><img src="MenuAlbum2.png" alt="Shadow & Light" /></a></li>
+    						  <li data-album="Landscapes"><a href="#"><img src="MenuAlbum3.png" alt="Landscapes" /></a></li>
+    						  <li data-album="Culinary"><a href="#"><img src="MenuAlbum4.png" alt="Culinary" /></a></li>
+    						</ul>
+                    </div>
+            </div>
+    </div>
+  </div>
+  <p><a href="#test3">Test link</a> after the hidden content.</p>
+</div><!--#test-->
+
+<script>
+var showBtn = document.querySelector("#test button:nth-of-type(1)"),
+    hideBtn = document.querySelector("#test button:nth-of-type(2)"),
+    content = document.querySelector("#test > div");
+
+// Toggle show/hide classes on test content
+showBtn.addEventListener("click", function(){
+  content.className = "visible";
+}, false);
+hideBtn.addEventListener("click", function(){
+  content.className = "hidden";
+}, false);
+</script>

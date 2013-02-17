@@ -1,0 +1,60 @@
+<style type="text/css">
+/* CSS3 Create
+
+Styles CSS liés à la démo:
+-> Effets de survol avec transitions et filtres CSS
+
+*/
+#article78 ul{
+width:302px;
+height:320px;
+margin:70px auto;
+}
+#article78 ul li{
+list-style:none;
+float:left;
+width:141px;
+height:150px;
+margin:5px;
+}
+#article78 ul li:nth-child(3){
+clear:left;
+}
+#article78 ul li img{
+position:absolute;
+z-index:1;
+height:150px !important;width:auto !important;
+margin:0;
+box-shadow:0 0 3px black;
+-webkit-transition:all .5s cubic-bezier(.6,2,.4,1);
+-moz-transition:all .5s cubic-bezier(.6,2,.4,1);
+-ms-transition:all .5s cubic-bezier(.6,2,.4,1);
+-o-transition:all .5s cubic-bezier(.6,2,.4,1);
+transition:all .5s cubic-bezier(.6,2,.4,1);
+}
+#article78 ul li:hover img{
+z-index:5;
+-webkit-transform: scale(1.5);
+-moz-transform: scale(1.5);
+-ms-transform: scale(1.5);
+-o-transform: scale(1.5);
+transform: scale(1.5);
+box-shadow:0 0 10px black;
+}
+#article78 ul:hover li img:not(:hover) {
+-webkit-filter: grayscale(1) blur(5px);
+-moz-filter: grayscale(1) blur(5px);
+-ms-filter: grayscale(1) blur(5px);
+-o-filter: grayscale(1) blur(5px);
+filter: grayscale(1) blur(5px);
+}
+</style>
+
+<section id="article78" class="crayon article-css-78 demoTime">
+                            <ul>
+          <li><img src="1-a92f19c345a92f-dab33.jpg" alt="" width='300' height='320' style='height:320px;width:300px;' /></li>
+          <li><img src="2-fd4970dc80fd49-65847.jpg" alt="" width='300' height='320' style='height:320px;width:300px;' /></li>
+          <li><img src="3-9d72b353609d72-e49b4.jpg" alt="" width='300' height='320' style='height:320px;width:300px;' /></li>
+          <li><img src="4-3ca9c5d3c73ca9-e14a4.jpg" alt="" width='300' height='320' style='height:320px;width:300px;' /></li>
+     </ul>          
+</section>

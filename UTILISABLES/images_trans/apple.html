@@ -1,0 +1,545 @@
+<style type="text/css">
+/* CSS3 Create
+
+Styles CSS liés à la démo:
+-> Créer le nouveau menu Mac Apple en CSS3
+
+*/
+#article28{
+position:relative;
+height:320px;
+padding-left:40px;
+padding-top:80px;
+overflow:hidden;
+font-family:"Trebuchet MS",sans-serif;
+font-size:0.9em;
+background:#f5f6f7;
+}
+/*copyright apple images*/
+#article28 p.copy{
+position:absolute;
+bottom:0;right:15px;
+font-size:0.7em;
+font-style:italic;
+color:#333;
+}
+
+#article28 #encart_apple{
+position:relative;
+width:505px;
+height:185px;
+overflow: hidden;
+background:white;
+border-radius:3px 3px 3px 3px;
+-webkit-box-shadow:0px 0px 3px rgba(0,0,0,0.3);
+box-shadow:0px 0px 3px rgba(0,0,0,0.3);
+}
+#article28 #encart_apple:after{
+content:"";
+position:absolute;
+width:505px;
+height:30px;
+border-radius:0px 0px 3px 3px;
+background:#DFDFDF;
+background:-webkit-linear-gradient(#A7A7A7,#EBEBEB 10%,#DFDFDF);
+background:-moz-linear-gradient(#A7A7A7,#EBEBEB 10%,#DFDFDF);
+background:-o-linear-gradient(#A7A7A7,#EBEBEB 10%,#DFDFDF);
+background:linear-gradient(#A7A7A7,#EBEBEB 10%,#DFDFDF);
+margin-top:154px;
+border-bottom:1px solid rgba(255,255,255,0.7);
+}
+
+
+#article28 #content_apple_1,
+#article28 #content_apple_2,
+#article28 #content_apple_3{
+/*hack*/
+position:absolute;
+margin-top:-400px;
+padding-top:400px;	
+}
+
+#article28 #content_apple{
+width:5000px;
+height: 155px;
+}
+
+#article28 dl{
+display:inline-block;
+height:155px;
+width:445px;
+padding-left:45px;
+}
+
+#article28 dl dt{
+position:absolute;
+left:0;
+margin-top:150px;
+z-index:100;
+font-size:0.8em;
+}
+
+#article28 dl.produits dt{margin-left:170px;}
+#article28 dl.logiciels dt{margin-left:217px;}
+#article28 dl.accessoires dt{margin-left:310px;}
+
+#article28 dl dt a{
+color:#555;
+text-decoration:none;
+}
+#article28 dl dt a:hover{
+color:black;
+text-shadow:0px 1px 0px rgba(255,255,255,0.5);
+}
+
+#article28 dl dd{
+display:inline-block;
+margin-right:-4px;
+width:100px;
+}
+#article28 dl dd img{
+display:block;
+}
+#article28 dl dd a{
+color:#555;
+font-size:0.75em;
+text-decoration:none;
+}
+#article28 dl dd em{
+display:block;
+font-style:normal;
+text-align:center;
+}
+
+#fleche{
+position:absolute;bottom:-14px;left:0;
+margin-left:174px;
+z-index:200;
+width:15px;height:15px;
+overflow:hidden;
+}
+#fleche div{
+width:10px;height:10px;
+background:white;
+-webkit-transform-origin:0px 0px;
+-moz-transform-origin:0px 0px;
+-o-transform-origin:0px 0px;
+transform-origin:0px 0px;
+-webkit-transform:rotate(-45deg);
+-moz-transform:rotate(-45deg);
+-o-transform:rotate(-45deg);
+transform:rotate(-45deg);
+-webkit-box-shadow:0px 0px 3px black;
+box-shadow:0px 0px 3px black;
+}
+
+/* target */
+#article28 #content_apple_1:target #content_apple,
+#article28 #content_apple_2:target #content_apple,
+#article28 #content_apple_3:target #content_apple{
+-webkit-transition:margin-left 0.4s ease 0.3s;
+-moz-transition:margin-left 0.4s ease 0.3s;
+-o-transition:margin-left 0.4s ease 0.3s;
+transition:margin-left 0.4s ease 0.3s;
+}
+#article28 #content_apple_1:target #content_apple{margin-left:0px;}
+#article28 #content_apple_2:target #content_apple{margin-left:-505px;}
+#article28 #content_apple_3:target #content_apple{margin-left:-1010px;}
+
+#article28 #content_apple_1:target #fleche,
+#article28 #content_apple_2:target #fleche,
+#article28 #content_apple_3:target #fleche{
+-webkit-transition:margin-left 0.4s ease-in-out 0.3s;
+-moz-transition:margin-left 0.4s ease-in-out 0.3s;
+-o-transition:margin-left 0.4s ease-in-out 0.3s;
+transition:margin-left 0.4s ease-in-out 0.3s;
+}
+#article28 #content_apple_1:target #fleche{margin-left:174px;}
+#article28 #content_apple_2:target #fleche{margin-left:243px;}
+#article28 #content_apple_3:target #fleche{margin-left:335px;}
+
+/* target sur 1e lien */
+#article28 #content_apple_1:target .produits dd{
+-webkit-animation:entreeGauche 1.6s linear;
+-moz-animation:entreeGauche 1.6s linear;
+-o-animation:entreeGauche 1.6s linear;
+animation:entreeGauche 1.6s linear;
+}
+#article28 #content_apple_1:target .produits dd:nth-of-type(1),
+#article28 #content_apple_2:target .logiciels dd:nth-of-type(1),
+#article28 #content_apple_3:target .accessoires dd:nth-of-type(1){
+-webkit-animation-delay: 0s; 
+-moz-animation-delay: 0s; 
+-o-animation-delay: 0s; 
+animation-delay: 0s; 
+}
+#article28 #content_apple_1:target .produits dd:nth-of-type(2),
+#article28 #content_apple_2:target .logiciels dd:nth-of-type(2),
+#article28 #content_apple_3:target .accessoires dd:nth-of-type(2){
+-webkit-animation-delay: 0.05s; 
+-moz-animation-delay: 0.05s; 
+-o-animation-delay: 0.05s; 
+animation-delay: 0.05s; 
+}
+#article28 #content_apple_1:target .produits dd:nth-of-type(3),
+#article28 #content_apple_2:target .logiciels dd:nth-of-type(3),
+#article28 #content_apple_3:target .accessoires dd:nth-of-type(3){
+-webkit-animation-delay: 0.1s; 
+-moz-animation-delay: 0.1s; 
+-o-animation-delay: 0.1s; 
+animation-delay: 0.1s; 
+}
+
+/* target sur 2e et 3e lien */
+#article28 #content_apple_2:target .logiciels dd,
+#article28 #content_apple_3:target .accessoires dd{
+-webkit-animation:entreeDroite 1.6s linear;
+-moz-animation:entreeDroite 1.6s linear;
+-o-animation:entreeDroite 1.6s linear;
+animation:entreeDroite 1.6s linear;
+}
+
+/*lien1*/
+#article28 #content_apple_1:target .logiciels dd,
+#article28 #content_apple_1:target .accessoires dd,
+#article28 #content_apple_2:target .accessoires dd{
+-webkit-animation:sortieDroite 1s linear;
+-moz-animation:sortieDroite 1s linear;
+-o-animation:sortieDroite 1s linear;
+animation:sortieDroite 1s linear;
+}
+#article28 #content_apple_1:target .logiciels dd:nth-of-type(1),
+#article28 #content_apple_1:target .accessoires dd:nth-of-type(1),
+#article28 #content_apple_2:target .produits dd:nth-of-type(3),
+#article28 #content_apple_2:target .accessoires dd:nth-of-type(1),
+#article28 #content_apple_3:target .produits dd:nth-of-type(3),
+#article28 #content_apple_3:target .logiciels dd:nth-of-type(3){
+-webkit-animation-delay: 0.3s; 
+-moz-animation-delay: 0.3s;
+-o-animation-delay: 0.3s;
+animation-delay: 0.3s;
+}
+#article28 #content_apple_1:target .logiciels dd:nth-of-type(2),
+#article28 #content_apple_1:target .accessoires dd:nth-of-type(2),
+#article28 #content_apple_2:target .produits dd:nth-of-type(2),
+#article28 #content_apple_2:target .accessoires dd:nth-of-type(2),
+#article28 #content_apple_3:target .produits dd:nth-of-type(2),
+#article28 #content_apple_3:target .logiciels dd:nth-of-type(2){
+-webkit-animation-delay: 0.2s; 
+-moz-animation-delay: 0.2s;
+-o-animation-delay: 0.2s;
+animation-delay: 0.2s;
+}
+#article28 #content_apple_1:target .logiciels dd:nth-of-type(3),
+#article28 #content_apple_1:target .accessoires dd:nth-of-type(3),
+#article28 #content_apple_2:target .produits dd:nth-of-type(1),
+#article28 #content_apple_2:target .accessoires dd:nth-of-type(3),
+#article28 #content_apple_3:target .produits dd:nth-of-type(1),
+#article28 #content_apple_3:target .logiciels dd:nth-of-type(1){
+-webkit-animation-delay: 0.1s; 
+-moz-animation-delay: 0.1s;
+-o-animation-delay: 0.1s;
+animation-delay: 0.1s;
+}
+
+/*lien2, lien 3*/
+#article28 #content_apple_2:target .produits dd,
+#article28 #content_apple_3:target .produits dd,
+#article28 #content_apple_3:target .logiciels dd{
+-webkit-animation:sortieGauche 1s linear;
+-moz-animation:sortieGauche 1s linear;
+-o-animation:sortieGauche 1s linear;
+animation:sortieGauche 1s linear;
+}
+
+
+/* animation */
+@-webkit-keyframes entreeGauche {
+	from { -webkit-transform:translate( -3000px); }
+    46%  { -webkit-transform:translate( -3000px); }
+	48%  { -webkit-transform:translate(  -955px); }
+	50%  { -webkit-transform:translate(  -764px); }
+	52%  { -webkit-transform:translate(  -573px); }
+	54%  { -webkit-transform:translate(  -382px); }
+	56%  { -webkit-transform:translate(  -191px); }
+	58%  { -webkit-transform:translate(     0  ); }
+	60%  { -webkit-transform:translate(    52px); }
+	62%  { -webkit-transform:translate(    34px); }
+	64%  { -webkit-transform:translate(     0  ); }
+	68%  { -webkit-transform:translate(   -15px); }
+	70%  { -webkit-transform:translate(   -10px); }
+	72%  { -webkit-transform:translate(     0  ); }
+	74%  { -webkit-transform:translate(     4px); }
+	76%  { -webkit-transform:translate(     3px); }
+	78%  { -webkit-transform:translate(     0  ); }
+	80%  { -webkit-transform:translate(    -1px); }
+	82%  { -webkit-transform:translate(    -1px); }
+	84%  { -webkit-transform:translate(     0  ); }
+	to   { -webkit-transform:translate(     0  ); }
+}
+@-webkit-keyframes entreeDroite {
+	from { -webkit-transform:translate( 3000px); }
+        46%  { -webkit-transform:translate( 3000px); }
+	48%  { -webkit-transform:translate( 1697px); }
+	50%  { -webkit-transform:translate( 1455px); }
+	52%  { -webkit-transform:translate( 1212px); }
+	54%  { -webkit-transform:translate(  970px); }
+	56%  { -webkit-transform:translate(  727px); }
+	58%  { -webkit-transform:translate(  485px); }
+	60%  { -webkit-transform:translate(  242px); }
+	64%  { -webkit-transform:translate(    0  ); }
+	68%  { -webkit-transform:translate(  -67px); }
+	70%  { -webkit-transform:translate(  -44px); }
+	72%  { -webkit-transform:translate(    0  ); }
+	74%  { -webkit-transform:translate(   19px); }
+	76%  { -webkit-transform:translate(   12px); }
+	78%  { -webkit-transform:translate(    0  ); }
+	80%  { -webkit-transform:translate(   -6px); }
+	82%  { -webkit-transform:translate(   -4px); }
+	84%  { -webkit-transform:translate(    0  ); }
+	86%  { -webkit-transform:translate(    2px); }
+	88%  { -webkit-transform:translate(    1px); }
+	90%  { -webkit-transform:translate(    0  ); }
+	92%  { -webkit-transform:translate(   -1px); }
+	94%  { -webkit-transform:translate(    0  ); }
+	96%  { -webkit-transform:translate(   -1px); }
+	to   { -webkit-transform:translate(    0  ); }
+}
+
+@-webkit-keyframes sortieGauche {
+	from  { -webkit-transform:translate(    0  ); }
+        to    { -webkit-transform:translate( -1500px); }
+}
+
+@-webkit-keyframes sortieDroite {
+	from  { -webkit-transform:translate(    0  ); }
+        to    { -webkit-transform:translate( 1500px); }
+}
+
+/* animation */
+@-moz-keyframes entreeGauche {
+	from { -moz-transform:translate( -3000px); }
+     46%  { -moz-transform:translate( -3000px); }
+	48%  { -moz-transform:translate(  -955px); }
+	50%  { -moz-transform:translate(  -764px); }
+	52%  { -moz-transform:translate(  -573px); }
+	54%  { -moz-transform:translate(  -382px); }
+	56%  { -moz-transform:translate(  -191px); }
+	58%  { -moz-transform:translate(     0  ); }
+	60%  { -moz-transform:translate(    52px); }
+	62%  { -moz-transform:translate(    34px); }
+	64%  { -moz-transform:translate(     0  ); }
+	68%  { -moz-transform:translate(   -15px); }
+	70%  { -moz-transform:translate(   -10px); }
+	72%  { -moz-transform:translate(     0  ); }
+	74%  { -moz-transform:translate(     4px); }
+	76%  { -moz-transform:translate(     3px); }
+	78%  { -moz-transform:translate(     0  ); }
+	80%  { -moz-transform:translate(    -1px); }
+	82%  { -moz-transform:translate(    -1px); }
+	84%  { -moz-transform:translate(     0  ); }
+	to   { -moz-transform:translate(     0  ); }
+}
+@-moz-keyframes entreeDroite {
+	from { -moz-transform:translate( 3000px); }
+     46%  { -moz-transform:translate( 3000px); }
+	48%  { -moz-transform:translate( 1697px); }
+	50%  { -moz-transform:translate( 1455px); }
+	52%  { -moz-transform:translate( 1212px); }
+	54%  { -moz-transform:translate(  970px); }
+	56%  { -moz-transform:translate(  727px); }
+	58%  { -moz-transform:translate(  485px); }
+	60%  { -moz-transform:translate(  242px); }
+	64%  { -moz-transform:translate(    0  ); }
+	68%  { -moz-transform:translate(  -67px); }
+	70%  { -moz-transform:translate(  -44px); }
+	72%  { -moz-transform:translate(    0  ); }
+	74%  { -moz-transform:translate(   19px); }
+	76%  { -moz-transform:translate(   12px); }
+	78%  { -moz-transform:translate(    0  ); }
+	80%  { -moz-transform:translate(   -6px); }
+	82%  { -moz-transform:translate(   -4px); }
+	84%  { -moz-transform:translate(    0  ); }
+	86%  { -moz-transform:translate(    2px); }
+	88%  { -moz-transform:translate(    1px); }
+	90%  { -moz-transform:translate(    0  ); }
+	92%  { -moz-transform:translate(   -1px); }
+	94%  { -moz-transform:translate(    0  ); }
+	96%  { -moz-transform:translate(   -1px); }
+	to   { -moz-transform:translate(    0  ); }
+}
+
+@-moz-keyframes sortieGauche {
+	from  { -moz-transform:translate(    0  ); }
+        to    { -moz-transform:translate( -1500px); }
+}
+
+@-moz-keyframes sortieDroite {
+	from  { -moz-transform:translate(    0  ); }
+        to    { -moz-transform:translate( 1500px); }
+}
+
+/* animation */
+@-o-keyframes entreeGauche {
+	from { -o-transform:translate( -3000px); }
+    46%  { -o-transform:translate( -3000px); }
+	48%  { -o-transform:translate(  -955px); }
+	50%  { -o-transform:translate(  -764px); }
+	52%  { -o-transform:translate(  -573px); }
+	54%  { -o-transform:translate(  -382px); }
+	56%  { -o-transform:translate(  -191px); }
+	58%  { -o-transform:translate(     0  ); }
+	60%  { -o-transform:translate(    52px); }
+	62%  { -o-transform:translate(    34px); }
+	64%  { -o-transform:translate(     0  ); }
+	68%  { -o-transform:translate(   -15px); }
+	70%  { -o-transform:translate(   -10px); }
+	72%  { -o-transform:translate(     0  ); }
+	74%  { -o-transform:translate(     4px); }
+	76%  { -o-transform:translate(     3px); }
+	78%  { -o-transform:translate(     0  ); }
+	80%  { -o-transform:translate(    -1px); }
+	82%  { -o-transform:translate(    -1px); }
+	84%  { -o-transform:translate(     0  ); }
+	to   { -o-transform:translate(     0  ); }
+}
+@-o-keyframes entreeDroite {
+	from { -o-transform:translate( 3000px); }
+        46%  { -o-transform:translate( 3000px); }
+	48%  { -o-transform:translate( 1697px); }
+	50%  { -o-transform:translate( 1455px); }
+	52%  { -o-transform:translate( 1212px); }
+	54%  { -o-transform:translate(  970px); }
+	56%  { -o-transform:translate(  727px); }
+	58%  { -o-transform:translate(  485px); }
+	60%  { -o-transform:translate(  242px); }
+	64%  { -o-transform:translate(    0  ); }
+	68%  { -o-transform:translate(  -67px); }
+	70%  { -o-transform:translate(  -44px); }
+	72%  { -o-transform:translate(    0  ); }
+	74%  { -o-transform:translate(   19px); }
+	76%  { -o-transform:translate(   12px); }
+	78%  { -o-transform:translate(    0  ); }
+	80%  { -o-transform:translate(   -6px); }
+	82%  { -o-transform:translate(   -4px); }
+	84%  { -o-transform:translate(    0  ); }
+	86%  { -o-transform:translate(    2px); }
+	88%  { -o-transform:translate(    1px); }
+	90%  { -o-transform:translate(    0  ); }
+	92%  { -o-transform:translate(   -1px); }
+	94%  { -o-transform:translate(    0  ); }
+	96%  { -o-transform:translate(   -1px); }
+	to   { -o-transform:translate(    0  ); }
+}
+
+@-o-keyframes sortieGauche {
+	from  { -o-transform:translate(    0  ); }
+        to    { -o-transform:translate( -1500px); }
+}
+
+@-o-keyframes sortieDroite {
+	from  { -o-transform:translate(    0  ); }
+        to    { -o-transform:translate( 1500px); }
+}
+
+/* animation */
+@keyframes entreeGauche {
+	from { transform:translate( -3000px); }
+    46%  { transform:translate( -3000px); }
+	48%  { transform:translate(  -955px); }
+	50%  { transform:translate(  -764px); }
+	52%  { transform:translate(  -573px); }
+	54%  { transform:translate(  -382px); }
+	56%  { transform:translate(  -191px); }
+	58%  { transform:translate(     0  ); }
+	60%  { transform:translate(    52px); }
+	62%  { transform:translate(    34px); }
+	64%  { transform:translate(     0  ); }
+	68%  { transform:translate(   -15px); }
+	70%  { transform:translate(   -10px); }
+	72%  { transform:translate(     0  ); }
+	74%  { transform:translate(     4px); }
+	76%  { transform:translate(     3px); }
+	78%  { transform:translate(     0  ); }
+	80%  { transform:translate(    -1px); }
+	82%  { transform:translate(    -1px); }
+	84%  { transform:translate(     0  ); }
+	to   { transform:translate(     0  ); }
+}
+@keyframes entreeDroite {
+	from { transform:translate( 3000px); }
+        46%  { transform:translate( 3000px); }
+	48%  { transform:translate( 1697px); }
+	50%  { transform:translate( 1455px); }
+	52%  { transform:translate( 1212px); }
+	54%  { transform:translate(  970px); }
+	56%  { transform:translate(  727px); }
+	58%  { transform:translate(  485px); }
+	60%  { transform:translate(  242px); }
+	64%  { transform:translate(    0  ); }
+	68%  { transform:translate(  -67px); }
+	70%  { transform:translate(  -44px); }
+	72%  { transform:translate(    0  ); }
+	74%  { transform:translate(   19px); }
+	76%  { transform:translate(   12px); }
+	78%  { transform:translate(    0  ); }
+	80%  { transform:translate(   -6px); }
+	82%  { transform:translate(   -4px); }
+	84%  { transform:translate(    0  ); }
+	86%  { transform:translate(    2px); }
+	88%  { transform:translate(    1px); }
+	90%  { transform:translate(    0  ); }
+	92%  { transform:translate(   -1px); }
+	94%  { transform:translate(    0  ); }
+	96%  { transform:translate(   -1px); }
+	to   { transform:translate(    0  ); }
+}
+
+@keyframes sortieGauche {
+	from  { transform:translate(    0  ); }
+        to    { transform:translate( -1500px); }
+}
+
+@keyframes sortieDroite {
+	from  { transform:translate(    0  ); }
+        to    { transform:translate( 1500px); }
+}
+
+
+</style>
+
+
+
+
+<section id="article28" class="crayon article-css-28 demoTime">
+                            <div id="encart_apple">
+                <div id="content_apple_1">
+                    <div id="content_apple_2">
+                        <div id="content_apple_3">
+                            <div id="content_apple">
+                            <dl class="produits">
+                                <dt><a href="#content_apple_1">Mac</a></dt>
+                                <dd><a href="#"><img src="macbook-5bbca.jpg" alt="macbook" width='130' height='130' style='height:100px;width:100px;' /><em>Macbook</em></a></dd>
+                                <dd><a href="#"><img src="macbookpro-2c09d.jpg" alt="macbook pro" width='130' height='130' style='height:100px;width:100px;' /><em>Macbook Pro</em></a></dd>
+                                <dd><a href="#"><img src="macbookair-e242f.jpg" alt="macbook air" width='130' height='130' style='height:100px;width:100px;' /><em>Macbook Air</em></a></dd>
+                            </dl>
+                            <dl class="logiciels">
+                                <dt><a href="#content_apple_2">Applications</a></dt>
+                                <dd><a href="#"><img src="ilife-318a2.jpg" alt="ilife 11" width='130' height='130' style='height:100px;width:100px;' /><em>iLife</em></a></dd>
+                                <dd><a href="#"><img src="iwork-6e8b9.jpg" alt="iwork 09" width='130' height='130' style='height:100px;width:100px;' /><em>iWork</em></a></dd>
+                                <dd><a href="#"><img src="safari-54e43.jpg" alt="safari 5" width='130' height='130' style='height:100px;width:100px;' /><em>Safari</em></a></dd>
+                            </dl>
+                            <dl class="accessoires">
+                                <dt><a href="#content_apple_3">Accessoires</a></dt>
+                                <dd><a href="#"><img src="keyboard-ddcb7.jpg" alt="clavier apple" width='130' height='130' style='height:100px;width:100px;' /><em>Clavier</em></a></dd>
+                                <dd><a href="#"><img src="magicmouse-32d13.jpg" alt="magic mouse" width='130' height='130' style='height:100px;width:100px;' /><em>Magic Mouse</em></a></dd>
+                                <dd><a href="#"><img src="magictrackpad-d2168.jpg" alt="magic trackpad" width='130' height='130' style='height:100px;width:100px;' /><em>Magic Trackpad</em></a></dd>
+                            </dl>
+                        </div>
+                        <div id="fleche"><div></div></div>
+                    </div>
+                </div>
+            </div>
+</div>
+<p class="copy">Images Copyright ©Apple</p>
+                        </section>

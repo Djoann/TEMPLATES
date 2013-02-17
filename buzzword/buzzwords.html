@@ -1,0 +1,30 @@
+<div id="word"></div>
+
+<div id="controls">
+  <div>slowest <input type="range" min="1" max="10" step="1" id="speed" value="5" /> fastest</div>
+  <div>less words <input type="range" min="1" max="5" step="1" id="wordCount" value="3" /> more words</div>
+</div>
+
+<div id="text">CSS has had a long and sordid past. A developer never sets out with the goal of making a complete and total mess of things. Their intention is not to build something that is practically illegible, impractical to maintain and is limited in scale. But somehow, this is where many inevitably end up. Luckily, all is not lost. With some simple strategies, organizational methods and out-of-the box tools, we can really help get that junk-drawer inline.
+
+For many of us getting started with Sass, at one time or another have created a junk-drawer of files. For most, this was a rookie mistake, but for others, this is a continuing issue with our architecture and file management techniques. Sass doesn't come with any real rules for file management so developers are pretty much left to their own devices.
+
+Large CSS files and increased complexity
+
+CSS started out with very simple intentions, but as tableless web design began to really take a foothold, our stylesheets quickly began to grow in size. We tried to break our stylesheets into smaller documents, but these strategies proved to have serious performance issues. Linking to multiple stylesheets meant multiple server round-trips and CSS' @import feature had such a negative impact on web page performance it's practice was quickly abandoned.
+
+Looking for new solutions, developers adopted the use of CSS pre-processors, but sadly didn't change old habits. Still clinging to large documents they placed mixins and variables at the head of the doc and simply hashed out a bunch of CSS rules in the body.
+
+Looking for better management techniques, many began to break these large stylesheets into smaller documents based on common principles like variables and mixins. Typography, forms and design soon followed. Sure this reduced file size and increased readability, but without a real strategy this process was easily doomed. As files grew in number, sub-directories quickly gave way to junk-drawers of haphazardly daisy-chained files.
+
+Controller/action based styles
+
+Inspired by Model-View-Controller(MVC) frameworks, developers began to look at these file structure solutions to help solve their issues. Organizing styles based on controllers was a popular approach. While there is some merit to this in regards to template/layout styles, this practice inevitably lends itself to creating styles that are too specific to the view and not easily reused throughout the rest of the application.
+
+Abuse of Sass' nesting rule was the most egregious transgression. A feature that made it seem so right, so awesome and so natural to build CSS that mimicked our markup was so wrong. Succumbing to the pressures of specificity to dominate the cascade, developers found themselves in a CSS selector nightmare. Style rules were difficult to reuse and extremely fragile to edit.
+
+Between the views, duplicated code began to reveal itself. Attempts to abstract the code, following another MVC pattern, typically resulted in the creation of a /partials directory. Basically a simple repository for custom built mixins, variables and other reusable code. In essence, a junk-drawer.
+
+In another attempt to abstract away from the view developers tried to organize their files based on actions. If the visual elements are part of an action, making directories based on these actions makes sense, right? Sadly, this quickly falls apart as not all UI elements can be easily categorized this way. Random files again populate the directory, universal widgets, plug-ins, and custom mixins begin to collect. Once again we find ourselves suffering from the junk-drawer effect.</div>
+
+<!-- Text pulled from http://gist.io/4436524 -->

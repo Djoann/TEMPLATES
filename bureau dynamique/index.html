@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<head>
+<title>BUREAU</title>
+
+</head>
+
+<script>
+
+$(document).ready(function(){
+
+var val = 0;
+
+$('button').click(function() {
+	if($(this).attr('id') == 'next') {
+		val += 45;
+		$('section').css('-webkit-transform','rotateY(-'+val+'deg)'); 
+	}
+	else if($(this).attr('id') == 'prev') {
+		val -= 45;
+		$('section').css('-webkit-transform','rotateY(-'+val+'deg) ');
+	}
+});
+
+});
+
+
+</script>
+
+<style>@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+  to { 
+    -webkit-transform: rotateY(360deg);
+  }
+}
+
+span {
+	display: block;
+	text-align: center;
+}
+
+button {
+	display: inline;
+	margin: 0 .5em;
+	padding: 1em 2em;
+	border-radius: 3px;
+	background: #f4f4f4;
+	border: 1px solid #ddd;
+	box-shadow: inset 0 1px 0 white, 0 1px 1px #999;
+	font-weight: bold;
+	text-shadow: 0 -1px white;
+	color: #555;
+}
+
+div {
+	-webkit-transform: perspective( 1000px );
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: all 1s ease;
+	/*
+	-webkit-animation-name:             rotate; 
+	-webkit-animation-duration:         5s; 
+	-webkit-animation-iteration-count:  infinite;
+	-webkit-animation-timing-function:  linear;
+	*/
+	
+}
+
+section {
+	margin: 2.5em auto 3em;
+	width: 555px;
+	height: 160px;
+	position: relative;
+	-webkit-transition: all 1s ease;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transform: rotateX(0deg);
+}
+
+
+figure {
+	-webkit-transform-style: preserve-3d;
+	position: absolute;
+	color: white;
+	font-family: Helvetica, sans-serif;
+	font-size: 1.5em;
+	opacity: 1;
+	padding: 2.75em 4em;
+	margin: 0;
+	z-index: 100;
+}
+
+/* 1 */
+#a {
+	-webkit-transform: translateZ(247px) translateX(7.29em);
+	background: #8a4646;
+}
+
+/* 2 */
+#b {
+	-webkit-transform: rotateY(45deg) translateZ(370px) translateX(124px);
+	   -moz-transform: rotateY(45deg);
+			transform: rotateY(45deg);
+	background: #8DA681;
+}
+
+/* 3 */
+#c {
+	right: -2.975em;
+	-webkit-transform: rotateY(90deg);
+   	   -moz-transform: rotateY(90deg);
+		    transform: rotateY(90deg);
+	background: #E89063;
+}
+
+/* 4 */
+#d {
+	-webkit-transform: rotateY(-45deg) translateX(124px) translateZ(-371px);
+	   -moz-transform: rotateY(-45deg);
+			transform: rotateY(-45deg);
+	background: #607f87;
+}
+
+/* 5 */
+#e {
+	-webkit-transform: translateZ(-246px) translateX(7.29em);
+	   -moz-transform: translateZ(-410px);
+			transform: translateZ(-410px);
+	background: #8a4673;
+}
+
+/* 6 */
+#f {
+	-webkit-transform: rotateY(45deg) translateX(124px) translateZ(-123px);
+	   -moz-transform: rotateY(45deg);
+			transform: rotateY(45deg);
+	background: #613631;
+}
+
+/* 7 */
+#g {
+	left: -2.975em;
+	-webkit-transform: rotateY(90deg);
+   	   -moz-transform: rotateY(90deg);
+		    transform: rotateY(90deg);
+	background: #413659;
+}
+
+/* 8 */
+#h {
+	-webkit-transform: rotateY(-45deg) translateZ(123px) translateX(124px);
+	   -moz-transform: rotateY(-45deg);
+			transform: rotateY(-45deg);
+	background: #2F343B;
+}
+</style>
+
+
+	<div>
+		<section>
+			<figure id="a">1</figure>
+			<figure id="b">2</figure>
+			<figure id="c">3</figure>
+			<figure id="d">4</figure>
+			<figure id="e">5</figure>
+			<figure id="f">6</figure>
+			<figure id="g">7</figure>
+			<figure id="h">8</figure>
+		</section>
+	</div>
+<span>
+<button id="prev" >Prev</button>
+<button id="next" >Next</button>
+</span>
+
+</body>
+</html>

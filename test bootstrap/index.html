@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Twitter Bootstrap Popover Example</title> 
+<meta name="description" content="This is an example to create Popover with Twitter Bootstrap.">
+<link href="twitter-bootstrap/twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet"> 
+</head>
+<body>
+<div class="container">
+<h2>Example of creating Popover with Twitter Bootstrap</h2>
+<div class="well">
+<a href="#" id="example" class="btn btn-success" rel="popover" data-content="It's so simple to create a tooltop for my website! Mon ange" data-original-title="Twitter Bootstrap Popover">Hover Manon</a>
+<a href="#" id="blob" class="btn large primary" rel="popover">hover for popover</a>
+<a href="#" rel="drevil">mischief</a>
+
+
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-tooltip.js"></script>
+<script src="twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-popover.js"></script>
+<script>
+var img = '<img src="https://si0.twimg.com/a/1339639284/images/three_circles/twitter-bird-white-on-blue.png" />';
+
+$("#blob").popover({ title: 'Look! A bird!', content: img });​​​
+</script>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+  $("[rel=drevil]").popover({
+      placement : 'bottom', //placement of the popover. also can use top, bottom, left or right
+      title : '<div style="text-align:center; color:red; text-decoration:underline; font-size:14px;"> Muah ha ha</div>', //this is the top title bar of the popover. add some basic css
+      html: 'true', //needed to show html of course
+      content : '<div id="popOverBox"><img src="http://www.hd-report.com/wp-content/uploads/2008/08/mr-evil.jpg" width="251" height="201" /></div>' //this is the content of the html box. add the image here or anything you want really.
+});
+});
+</script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,182 @@
+
+/* SOCIAL LINKS
+--------------------------------*/
+
+.social-wrapper {
+position: absolute;
+top: 17px;
+right: 22px;
+}
+
+.social-wrapper .social-link {
+float: left;
+width: 26px;
+height: 26px;
+margin-left: 5px;
+background: #fff url(images/social-light.png) no-repeat 0 0;
+background: rgba(255,255,255,0) url(images/social-light.png) no-repeat 0 0;
+zoom: 1;
+filter: alpha(opacity=40);
+opacity: 0.4;
+-webkit-transition: opacity 0.2s ease;
+-moz-transition: opacity 0.2s ease;
+-o-transition: opacity 0.2s ease;
+transition: opacity 0.2s ease;
+}
+
+.social-wrapper .social-link:hover {
+filter: alpha(opacity=100);
+opacity: 1;
+-webkit-transition: opacity 0.2s ease;
+-moz-transition: opacity 0.2s ease;
+-o-transition: opacity 0.2s ease;
+transition: opacity 0.2s ease;
+}
+
+.social-wrapper .social-link a {
+display: block;
+width: 26px;
+height: 26px;
+text-indent: -999px;
+overflow: hidden;
+}
+
+.social-wrapper .social-link.delicious {
+background-position: -26px 0;
+}
+
+.social-wrapper .social-link.deviant {
+background-position: -52px 0;
+}
+
+.social-wrapper .social-link.digg {
+background-position: -78px 0;
+}
+
+.social-wrapper .social-link.dribbble {
+background-position: -104px 0;
+}
+
+.social-wrapper .social-link.facebook {
+background-position: -130px 0;
+}
+
+.social-wrapper .social-link.flickr {
+background-position: -156px 0;
+}
+
+.social-wrapper .social-link.forrst {
+background-position: -182px 0;
+}
+
+.social-wrapper .social-link.gplus {
+background-position: -208px 0;
+}
+
+.social-wrapper .social-link.gtalk {
+background-position: -234px 0;
+}
+
+.social-wrapper .social-link.lastfm {
+background-position: -260px 0;
+}
+
+.social-wrapper .social-link.linkedin {
+background-position: -286px 0;
+}
+
+.social-wrapper .social-link.myspace {
+background-position: -312px 0;
+}
+
+.social-wrapper .social-link.orkut {
+background-position: -364px 0;
+}
+
+.social-wrapper .social-link.reddit {
+background-position: -390px 0;
+}
+
+.social-wrapper .social-link.rss {
+background-position: -416px 0;
+}
+
+.social-wrapper .social-link.skype {
+background-position: -442px 0;
+}
+
+.social-wrapper .social-link.tumblr {
+background-position: -494px 0;
+}
+
+.social-wrapper .social-link.twitter {
+background-position: -520px 0;
+}
+
+.social-wrapper .social-link.vimeo {
+background-position: -546px 0;
+}
+
+.social-wrapper .social-link.wp {
+background-position: -572px 0;
+}
+
+.social-wrapper .social-link.yahoo {
+background-position: -598px 0;
+}
+
+.social-wrapper .social-link.youtube {
+background-position: -624px 0;
+}
+
+
+
+/* SEARCH FIELD
+--------------------------------*/
+
+.social-wrapper .header-search {
+float: right;
+height: 25px;
+width:  135px;
+margin-left: 5px;
+padding-top: 1px;
+}
+
+.social-wrapper input[type="text"] {
+height: 13px;
+line-height: 13px;
+font-size: 13px;
+width:  100px;
+background: #888 url(images/search-icon-light.png) no-repeat right center;
+border: none;
+padding: 6px 25px 6px 10px;
+border-radius: 13px;
+color: #fff;
+zoom: 1;
+filter: alpha(opacity=40);
+opacity: 0.4;
+-webkit-transition: opacity 0.2s ease;
+-moz-transition: opacity 0.2s ease;
+-o-transition: opacity 0.2s ease;
+transition: opacity 0.2s ease;
+float: right;
+}
+
+.social-wrapper input[type="text"]:hover {
+cursor: pointer;
+filter: alpha(opacity=100);
+opacity: 1;
+-webkit-transition: opacity 0.2s ease;
+-moz-transition: opacity 0.2s ease;
+-o-transition: opacity 0.2s ease;
+transition: opacity 0.2s ease;
+}
+
+.social-wrapper input[type="text"]:focus {
+filter: alpha(opacity=100);
+opacity: 1;
+-webkit-transition: opacity 0.2s ease;
+-moz-transition: opacity 0.2s ease;
+-o-transition: opacity 0.2s ease;
+transition: opacity 0.2s ease;
+}

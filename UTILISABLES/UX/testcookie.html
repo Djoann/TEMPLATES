@@ -1,0 +1,33 @@
+
+<html>
+<head>
+<title>TEST COOKIES</title>
+<meta charset="utf-8" />
+
+<script language="JavaScript">
+
+<script type="text/javascript">
+if (document.cookie)
+{
+alert("Les cookies sont bien paramétrés !");
+}
+else
+{
+document.cookie = "essai=cookie";
+if (document.cookie) 
+{
+alert("Cookies correctement paramétrés !");
+}
+else
+{
+alert("Mauvais paramétrage des cookies :\n\nOutils - Options Internet - Confidentialité - Accepter tous les cookies\n(Internet Explorer)\n\nRAPPEL : les cookies ne sont QUE des fichiers texte\nIls ne sont donc pas nuisibles !");
+}
+}
+</script>
+
+
+</head>
+<body>
+</body>
+
+</html>

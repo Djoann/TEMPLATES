@@ -1,0 +1,46 @@
+@CHARSET "ISO-8859-1";
+/************************************* *              RESET ***************************************/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,acronym,big,font,img,small,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;background:transparent;}
+body{line-height:1;}
+ol,ul{list-style:square;}
+blockquote,q{quotes:none;}
+:focus{outline:0;}
+ins{text-decoration:none;}
+del{text-decoration:line-through;}
+table{border-collapse:collapse;border-spacing:0;}
+abbr{border-bottom: 1px dotted #ccc;cursor:pointer;padding:0 0 0 0;}
+
+body{background: #fff; color:#aaa;font-family: Georgia;}
+a{color:#aaa;text-decoration:none;}
+#container, #Content{ position:relative; }
+#PhotoIntro{ margin: 30px 0  60px 0;text-align:center; }
+h1 a{color:#ddd;font-size:38px;font-weight:normal;}
+h2{color:#777;font-size:20px;float:right;}
+
+ul,li{ list-style:none;font-size:15px;}
+li{float:left; margin: 5px 10px;}
+li a{padding:3px 5px 0 5px;}
+li a:hover, .actived{color:#fff; background:#111;}
+#HeaderContent{width: 980px;margin: 0 auto;}
+#Header{margin: 50px 0 50px 0px;border-bottom:1px solid #333;}
+#Content{clear:both; width: 965px;margin: 0 auto;}
+
+.Thumb{float:left; padding: 2px;background-color: #000;}
+.Thumb img{position:relative;z-index:2;
+}
+.hoverThumb{display:none;color:#eee;margin:-104px 0 0 0;padding:45px 0 41px 10px;font-size:18px;position:relative;z-index:1}
+
+
+.info{font-size:75%;}
+.section{color:#555;clear:both;padding:5px 0 15px 15px;font-size:13px;float:right;text-align:right;}
+
+#Picture{width:970px;text-align:center;}
+#PictureMain{width:970px;overflow:hidden;min-height:544px;}
+.bigPicture{vertical-align:middle;}
+#pictureCtrl{width:1020px;margin:240px 0 -285px -50px;text-align:right;position:relative;z-index:3;}
+#pictureCtrl .prev{float:left;margin: 0 -50px 0 50px;}
+#BreadCrumb{font-size:14px;position:absolute;margin: -68px 0 0 290px;font-weight:normal;}
+#BreadCrumb a{color:#bbb;}
+#bioDisplay{margin:150px 0 0 0;}
+
+#nowLoading{display:none;text-align:center;}

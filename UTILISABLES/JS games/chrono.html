@@ -1,0 +1,45 @@
+
+<html>
+<head>
+<meta charset="utf-8" />
+
+<script language="JavaScript">
+var dix= 0 
+var sc= 00 //
+var mn= prompt("End Time?") // On peut changer ici la valeur en mn ou en sc
+function chrono()
+{ 
+dix--; 
+if (dix<0) {dix=9;sc--}
+if (sc<0) {sc=59;mn--}
+time=mn+" mn "+sc+" s "+dix;
+document.forme.champ1.value=time;
+if (mn==0 & sc==0 & dix==0)
+{alert('Le temps imparti est terminé !')}
+décompte= setTimeout('chrono()', 100);}
+function zéro()
+{clearTimeout(décompte)
+dix= 0;
+sc=00;
+mn= 3;
+time=mn+" mn "+sc+" s "+dix;
+document.forme.champ1.value=time;
+}
+</script>
+
+
+</head>
+<body>
+
+<form name="forme">
+<p><input type="text" size="10" name="champ1"
+style="background-color:#F0FFFF"></p>
+<p><input type="button" value="Départ"
+onclick="chrono()"> <input
+type="button" value="Recommencer" onclick="zéro()"></p> 
+</form>
+<noscript><a href="http://www.editeurjavascript.com/mycircle/">echange de lien</a></noscript>
+
+</body>
+
+</html>

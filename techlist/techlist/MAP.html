@@ -1,0 +1,1175 @@
+
+<!DOCTYPE html>
+<html>
+	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+		<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="description" content="A country of technology and creativity, France is becoming one of the most dynamic tech startup hubs in Europe. TechList aims at bringing visibility to its growing ecosystem.">
+		<meta name="author" content="Gwendall Esnault">
+		<link rel="icon" href="/resources/images/favicon.ico?v=2">
+		<meta property="fb:app_id"           content="406913019393179" /> 
+		<meta property="og:type"             content="website" /> 
+		<meta property="og:title"            content="Paris Tech List" /> 
+		<meta property="og:image"            content="http://techlist.in/resources/images/techlist.png" /> 
+		<meta property="og:description"      content="A country of technology and creativity, France is becoming one of the most dynamic tech startup hubs in Europe. TechList aims at bringing visibility to its growing ecosystem." /> 
+		<meta property="og:url"              content="http://techlist.in">
+		<meta property="og:site_name"        content="Paris Tech List">	
+		<title>Paris Tech List</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta charset="utf-8">
+
+		<meta name="description" content="A city of technology and creativity, Paris is becoming one of the most dynamic tech startup hubs in Europe. Inspired by Mapped in NY, Paris Tech List aims at bringing visibility to its growing ecosystem.">
+		
+		<link href='/libs/bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+		<link href='/libs/awesome/css/font-awesome.css' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" type="text/less" href="/resources/css/mapped.less">
+		<link rel="stylesheet" type="text/less" href="/resources/css/login.less">
+		<link href='http://fonts.googleapis.com/css?family=Dosis:800' rel='stylesheet' type='text/css'>
+
+				<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true&key=AIzaSyD-1vDrY2q7bLjc7TGSQMKMAsTJV8h1aN4&language=en"></script>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+		<script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+		<link rel="stylesheet" href="/libs/markercluster/dist/MarkerCluster.css" />
+		<link rel="stylesheet" href="/libs/markercluster/dist/MarkerCluster.Default.css" />
+		<script src="/libs/markercluster/dist/leaflet.markercluster.js" type="text/javascript"></script>
+
+		<script src="/libs/jquery.js"></script>
+		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js"></script>
+		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js"></script>
+
+		<script src="/libs/mustache.js" type="text/javascript"></script>
+		<script id="entry_template" type="text/template">
+	{{#title}}
+		<li class="listEntry listEntry-small navRightDetailsShow navRightLoadDetails" data-nb="{{nb}}" id="listEntry-{{nb}}">
+			<div class="listEntry-inner">
+				<div style="float:left;display:table;width:23px;">
+					<i class="icon-{{icon}}"></i>
+				</div>
+				<div class="listEntry-text">
+					<div class="title">
+						<span>{{title}}</span>
+						{{#jobs}}
+							<a class="floatRight hiring">
+								{{#fr}}
+									Nous recrutons!
+								{{/fr}}
+								{{^fr}}
+									We are hiring!
+								{{/fr}}	
+							</a>
+						{{/jobs}}
+					</div>
+					<div class="details">
+						<span>{{address}}<span>
+						<span style="display:none;" class='separator'>·</span>		
+						<span style="display:none;">{{postcode}}</span>
+					</div>
+					<div class="details" style="margin-top:5px;">
+						{{#tags}}
+							<div class="tag">{{value}}</div>
+						{{/tags}}
+					</div>
+					<div class="details" style="display:table;width:100%;">
+						{{#news}}
+							<span style="font-color:gray;font-size:11px;font-style:italic;position:relative;top:-2px;">
+								{{#fr}}
+									Ajoutée il y a {{accepted_ago}}
+								{{/fr}}
+								{{^fr}}
+									Added {{accepted_ago}} ago
+								{{/fr}}
+							</span>
+						{{/news}}
+					</div>
+				</div>
+			</div>
+		</li>
+	{{/title}}
+</script>
+
+<script id="details_template" type="text/template">
+	<div class="rightDetailsAll" data-nb="{{nb}}" id="rightDetailsAll-{{nb}}">
+		<div class="btn-group btns-nav">
+			<div class="btn btn-nav goToPrev">
+				<i class="icon-arrow-left"></i>
+			</div>
+			<div class="btn btn-list navRightDetailsHide">
+				<i class="icon-list"></i>
+				<span>
+					{{#fr}}
+						Fermer le profil
+					{{/fr}}
+					{{^fr}}
+						Hide profile
+					{{/fr}}
+				</span>
+			</div>
+			<div class="btn btn-nav goToNext">
+				<i class="icon-arrow-right"></i>
+			</div>
+		</div>
+
+		<li class="listEntry currentEntry entryRight-fullpage" data-nb="{{nb}}">
+			<div class="listEntry-text listEntry-fullpage">
+				<div class="title">
+					<h4>{{title}}</h4>
+					{{#hires}}
+						<div class="floatRight hiring">Hiring</div>
+					{{/hires}}
+				</div>
+				<div class="details">
+					<div>
+						<a href="{{website}}" target="_blank">{{domain}}</a>
+					</div>
+					<div style="margin-top:3px;">
+						<i class="icon-map-marker"></i>
+						<span>{{address}}<span>
+						<span style="display:none;" class='separator'>·</span>		
+						<span style="display:none;">{{postcode}}</span>
+					<div>
+					{{#description}}
+						<div>
+							<i class="icon-comment-alt"></i>
+							<span>{{description}}<span>
+						<div>
+					{{/description}}
+					<div class="details" style="position:relative;left:-10px;margin-top:5px;">
+						{{#tags}}
+							<div class="tag">{{value}}</div>
+						{{/tags}}
+					</div>
+					<div class="hiring-zone">
+						{{#jobs}}
+							<a href="{{jobs}}" target="_blank" class="hiring">
+								{{#fr}}
+									Nous recrutons! Voir nos offres
+								{{/fr}}
+								{{^fr}}
+									We are hiring! View our positions
+								{{/fr}}	
+							</a>
+						{{/jobs}}
+					</div>
+					<div style="display:none;">
+						{{video}}
+					</div>
+				</div>
+				{{#permalink}}
+					<div style="font-size:10px;color:gray;margin-top:10px;display:table;width:100%;">
+						<div style="float:left;width:90px;">
+							<a href="https://twitter.com/share" class="twitter-share-button" 
+							data-text="{{title}} is a proud member of {{cityString}} Tech List, a map of the vibrant {{cityString}} startup ecosystem." 
+							data-lang="en" data-url="http://techlist.in/{{permalink}}">Tweet</a>
+						</div>
+						<div style="float:left;width:90px;display:none;" class="fb-like-box">
+							<div class="fb-like" data-href="http://techlist.in/{{permalink}}" data-send="false" 
+							data-layout="button_count" data-width="50" data-show-faces="false" data-font="lucida grande"></div>
+						</div>
+					</div>
+					<div style="font-size:10px;color:gray;margin-top:0px;display:table;width:100%;display:none;">
+						{{#fr}}
+							<a href="http://techlist.in/{{permalink}}" target="_blank">Lien direct</a> vers cette page.
+						{{/fr}}
+						{{^fr}}
+							<a href="http://techlist.in/{{permalink}}" target="_blank">Direct link</a> to this company profile.
+						{{/fr}}	
+					</div>
+				{{/permalink}}					
+				<div style="font-size:10px;color:gray;margin-top:5px;">
+					{{#edit}}
+						Is this your company? Have edits? <a href="{{edit}}" target="_blank">Edit it</a>.
+					{{/edit}}
+					{{^edit}}
+						{{#fr}}
+							Des corrections à apporter? <a href="mailto:gwendall.esnault@gmail.com">Emailez-nous</a>.
+						{{/fr}}
+						{{^fr}}
+							Is this your company? Have edits? <a href="mailto:gwendall.esnault@gmail.com">Email us</a>.
+						{{/fr}}	
+					{{/edit}}				
+				</div>
+				<div id="twitter-zone">
+					{{#team}}
+						<div class="contactEntry">
+							<input type="hidden" name="twitter_handles[]" 	value="{{twitter_handle}}">
+							<input type="hidden" name="twitters_details[]" 	value="{{twitter_details}}">
+							{{#auth}}
+								<i class="icon-ok-sign tooltiped" rel="tooltip" data-placement="left" title="Profile verified"></i>
+							{{/auth}}
+							<div class="contactEntry-img">
+								<img src={{pic_thumb}}>
+							</div>
+							<div class="contactEntry-text small">
+								<div class="contactEntry-title">
+									<div><b>{{full_name}}</b></div>
+									{{#twitter_handle}}
+										<div style="margin-top:3px;">
+											<i class="icon-twitter"></i>
+											@<a href="http://twitter.com/{{twitter_handle}}" target="_blank">{{twitter_handle}}</a>
+										</div>
+										<div style="margin-top:3px;font-size:11px;font-style:italic;">{{twitter_followers}} followers</div>
+									{{/twitter_handle}}
+								</div>
+								<div class="contactEntry-details">{{{description}}}</div>
+							</div>
+						</div>
+					{{/team}}
+				</div>
+			</div>
+		</li>
+		<div id="navRight-bottom" 
+		style="background:url('http://maps.googleapis.com/maps/api/streetview?size=250x150&location={{lat}},{{lng}}&sensor=true') no-repeat">
+		</div>
+	</div>
+</script>
+
+<script id="twitter_template" type="text/template">
+	<div class="contactEntry">
+		<span class="contactEntry-delete">&#10006;</span>
+		<input type="hidden" name="twitter_handles[]" value="{{screen_name}}">
+		<input type="hidden" name="twitters_details[]" value="{{twitter_details}}">
+		<div class="contactEntry-img">
+			<img src={{profile_image_url}}>
+		</div>
+		<div class="contactEntry-text">
+			<div class="contactEntry-title">
+				<div><b><a href="http://twitter.com/{{screen_name}}" target="_blank">{{name}}</a></b></div>
+				<div><a href="http://twitter.com/{{screen_name}}" target="_blank">@{{screen_name}}</a></div>
+			</div>
+			<div class="contactEntry-details">{{{description}}}</div>
+		</div>
+	</div>
+</script>
+
+<script id="crunchbase_template" type="text/template">
+	<div class="dropdown-entry dropdown-entry-activable {{#first}}dropdown-entry-active{{/first}}">{{name}} ({{namespace}})</div>
+</script>
+
+<script id="curator_template" type="text/template">
+	<li class='curatorEntry goToCity' data-northEastLat='{{bounds.northeast.lat}}' data-northEastLng='{{bounds.northeast.lng}}' 
+	data-southWestLat='{{bounds.southwest.lat}}' data-southWestLng='{{bounds.southwest.lng}}'>
+		<div class='curatorEntry-pic'>
+			<img src='{{picture}}'>
+		</div>
+		<div class='curatorEntry-text'>
+			<div class='title'>{{name}}</div>
+			<div class='subtitle'>{{city}} curator</div>
+		</div>
+	</li>
+</script>
+
+<script id="supporter_template" type="text/template">
+	<a href='https://twitter.com/{{from_user}}/status/{{id_str}}' target='_blank' class='supporterPic {{hidden}}'>
+		<img src='{{profile_image_url}}' class='tooltiped' data-placement='top' title='@{{from_user}}: {{text}}'>
+	</a>
+</script>
+
+<script id="tag_template" type="text/template">
+	<div class="tag tag-big" style="display:none;">
+		<i class="icon-remove"></i>
+		<input type="hidden" name="{{name}}" value="{{value}}">
+		<div class="tag-inner">{{value}}</div>
+	</div>
+</script>
+
+<script id="location_template" type="text/template">
+	<div class="entry-location">
+		<input type="hidden" name="locations[]" value="{{details}}">
+		<div><b>{{address}}</b></div>
+		<div>
+			<img src="http://api.tiles.mapbox.com/v3/examples.map-4l7djmvo/pin-m-monument({{lng}},{{lat}})/{{lng}},{{lat}},16/500x200.png" 
+			class="entry-location-image">
+		</div>
+	</div>
+</script>
+
+<script id="user_template" type="text/template">
+	<div class="contactEntry">
+		<span class="contactEntry-delete">&#10006;</span>
+		<input type="hidden" name="emails[]" value="{{email}}">
+		<input type="hidden" name="twitter_handles[]" value="{{screen_name}}">
+		<input type="hidden" name="twitters_details[]" value="{{twitter_details}}">
+		<div class="contactEntry-img">			
+			<img src={{pic_thumb}}>
+		</div>
+		<div class="contactEntry-text">
+			<div class="contactEntry-title">
+				{{#screen_name}}
+					<b>{{name}}</b> (@{{screen_name}})
+				{{/screen_name}}
+				{{#email}}
+					<b>{{email}}</b>
+				{{/email}}
+			</div>
+		</div>
+	</div>
+</script>
+
+		<script src="/libs/less.js" type="text/javascript"></script>
+		<script src="/libs/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="/libs/accents.js" type="text/javascript"></script>
+		
+					<script src="/js/apps.js" type="text/javascript"></script>
+				
+		<script src="/js/forms.js" type="text/javascript"></script>
+		
+	</head>
+
+	<input type='text' value='{"bordeaux":{"id":"59","permalink":"bordeaux","title":"Bordeaux","country":"","parent":"","lat":"44.8378","lng":"-0.57918","lat_min":"44.8108","lat_max":"44.9167","lng_min":"-0.638973","lng_max":"-0.533309","tweets_count":"107","active":"1","date_added":"2013-01-15 17:07:18","date_updated":"2013-02-01 05:10:15"},"clermont-ferrand":{"id":"107","permalink":"clermont-ferrand","title":"Clermont-Ferrand","country":"","parent":"","lat":"45.7772","lng":"3.08702","lat_min":"45.7558","lat_max":"45.8184","lng_min":"3.0533","lng_max":"3.17216","tweets_count":"88","active":"1","date_added":"2013-01-17 05:58:19","date_updated":"2013-02-01 05:10:15"},"france":{"id":"187","permalink":"france","title":"France","country":"","parent":"","lat":"0","lng":"0","lat_min":"41.3423","lat_max":"51.089","lng_min":"-5.14123","lng_max":"9.56007","tweets_count":"41","active":"1","date_added":"0000-00-00 00:00:00","date_updated":"2013-02-01 05:10:16"},"grenoble":{"id":"18","permalink":"grenoble","title":"Grenoble","country":"","parent":"","lat":"45.1885","lng":"5.72452","lat_min":"45.154","lat_max":"45.2143","lng_min":"5.678","lng_max":"5.75308","tweets_count":"40","active":"1","date_added":"2013-01-12 11:22:43","date_updated":"2013-02-01 05:10:15"},"lille":{"id":"20","permalink":"lille","title":"Lille","country":"","parent":"","lat":"50.6292","lng":"3.05726","lat_min":"50.6009","lat_max":"50.6612","lng_min":"2.96797","lng_max":"3.12635","tweets_count":"43","active":"1","date_added":"2013-01-12 11:24:16","date_updated":"2013-02-01 05:10:15"},"lyon":{"id":"17","permalink":"lyon","title":"Lyon","country":"","parent":"","lat":"45.764","lng":"4.83566","lat_min":"45.7075","lat_max":"45.8084","lng_min":"4.77185","lng_max":"4.89839","tweets_count":"89","active":"1","date_added":"2013-01-12 11:22:38","date_updated":"2013-02-01 05:10:15"},"metz":{"id":"77","permalink":"metz","title":"Metz","country":"","parent":"","lat":"49.1197","lng":"6.17691","lat_min":"49.0608","lat_max":"49.1489","lng_min":"6.136","lng_max":"6.25681","tweets_count":"20","active":"1","date_added":"2013-01-16 05:20:29","date_updated":"2013-02-01 05:10:15"},"montpellier":{"id":"23","permalink":"montpellier","title":"Montpellier","country":"","parent":"","lat":"43.6108","lng":"3.87672","lat_min":"43.5667","lat_max":"43.6533","lng_min":"3.80704","lng_max":"3.94128","tweets_count":"89","active":"1","date_added":"2013-01-13 02:42:19","date_updated":"2013-02-01 05:10:15"},"nantes":{"id":"40","permalink":"nantes","title":"Nantes","country":"","parent":"","lat":"47.2184","lng":"-1.55362","lat_min":"47.1806","lat_max":"47.2958","lng_min":"-1.64179","lng_max":"-1.47833","tweets_count":"146","active":"1","date_added":"2013-01-14 09:37:13","date_updated":"2013-02-01 05:10:15"},"paris":{"id":"16","permalink":"paris","title":"Paris","country":"","parent":"","lat":"48.8566","lng":"2.35222","lat_min":"48.8156","lat_max":"48.9021","lng_min":"2.2242","lng_max":"2.46992","tweets_count":"90","active":"1","date_added":"2013-01-12 11:22:34","date_updated":"2013-02-01 05:10:16"},"rennes":{"id":"55","permalink":"rennes","title":"Rennes","country":"","parent":"","lat":"48.1135","lng":"-1.67571","lat_min":"48.0769","lat_max":"48.155","lng_min":"-1.75254","lng_max":"-1.62437","tweets_count":"109","active":"1","date_added":"2013-01-15 11:43:23","date_updated":"2013-02-01 05:10:15"},"toulouse":{"id":"22","permalink":"toulouse","title":"Toulouse","country":"","parent":"","lat":"43.6047","lng":"1.44421","lat_min":"43.5327","lat_max":"43.6687","lng_min":"1.35033","lng_max":"1.51535","tweets_count":"167","active":"1","date_added":"2013-01-12 11:24:23","date_updated":"2013-02-01 05:10:15"}}'style='display:none;' id='citiesList'>
+	<input type="text" value="paris" style="display:none;" id="cityVal">
+	<input type="text" value="fr" style="display:none;" id="langVal">
+	<input type="text" value="paris" style="display:none;" id="url_first">
+	<input type="text" value="" style="display:none;" id="url_second">
+	<input type="text" value="" style="display:none;" id="url_third">
+
+	<!-- Modal -->
+<div id="aboutModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">TechList: pourquoi?</h3>
+		</div>
+		<div class="modal-body">
+			 
+	<p>
+		La France est l'un des hubs de startups technologiques les plus dynamiques en Europe.
+		Inspiré par <a href="http://mappedinny.com" target="_blank">Mapped in New York</a>,
+		TechList a pour objectif d'apporter davantage de visibilité à son écosystème en pleine expansion.<br/><br/>
+		TechList est une initiative indépendante. Il s'agit d'une plateforme construite et alimentée par la communauté des startups Françaises, pour la communauté des startups Françaises.<br/>
+	</p>
+	<br/>
+	<p>
+		Initialement conçue pour Paris, cette carte a été construite par <a href="http://gwen.fm" target="_blank">Gwendall Esnault</a>.
+		TechList a été mentionné par
+		<a href="http://www.paris.fr/accueil/accueil-paris-fr/une-carte-des-start-up-parisiennes/rub_1_actu_124425_port_24329" target="_blank">Paris.fr</a>,
+		<a href="http://www.lefigaro.fr/societes/2013/01/10/20005-20130110ARTFIG00736-la-carte-des-start-up-parisiennes.php" target="_blank">Le Figaro</a>,
+		<a href="http://www.latribune.fr/blogs/tendances-web/20121203trib000734854/une-carte-de-paris-pour-reperer-les-start-up.html" target="_blank">La Tribune</a>,
+		<a href="http://presse-citron.net/une-cartographie-des-start-ups-parisiennes" target="_blank">Presse-Citron</a>,
+		<a href="http://frenchweb.fr/les-3-derniers-sites-a-decouvrir-22" target="_blank">Frenchweb</a>,
+		<a href="http://www.cadremploi.fr/editorial/actualites/actu-emploi/detail/article/bon-plan-une-carte-interactive-pour-reperer-les-start-up-qui-recrutent.html" target="_blank">cadremploi.fr</a>,
+		<a href="http://www.evous.fr/Ou-sont-les-start-up-a-Paris-La-carte-reseau,1180881.html" target="_blank">evous.fr</a>,
+		<a href="http://www.usinenouvelle.com/article/paris-une-start-up-a-chaque-coin-de-rue.N189726" target="_blank">Usine Nouvelle</a>,
+		<a href="http://www.newzilla.net/2013/01/09/paris-tech-list-le-paris-des-start-up-a-la-carte/" target="_blank">Newzilla</a>,
+		<a href="http://pro.01net.com/editorial/583373/toutes-les-startups-franciliennes-sur-une-carte/" target="_blank">01net</a> et 
+		<a href="http://www.petitweb.fr/campagnes/paristechlist/" target="_blank">Le Petit Web</a>.
+	</p>
+	<br/>
+	<p>
+		Si vous souhaitez ajouter votre organisation à TechList, veuillez fournir vos informations 
+		<a href="/new" target="_blank">ici</a>.
+		<span>Pour toute question, n'hésitez pas à envoyer un 
+		<a href="mailto:gwendall.esnault@gmail.com" target="_blank">email</a>
+		ou un <a href="http://twitter.com/gwendall" target="_blank">tweet</a>.
+		</span>					
+	</p>
+	<br/>
+	<p>Bonne journée!</p>	
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
+		</div>
+	</div>
+
+<div id="editProfileModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Edit my profile</h3>
+	</div>
+	<div class="modal-body" style="height:400px;">
+		<div class="dropdown-wrapper">
+			<input type="text" placeholder="" class="input-btn parent-dropdown" 
+			id="crunchbaseSearch-input" data-src="crunchbaseSearch">
+			<div class="input-dropdown" id="crunchbaseSearch-results">
+				<div class="dropdown-entry">Loading...</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	</div>
+</div>
+
+<div id="curatorModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Become an ambassador for your city!</h3>
+	</div>
+	<div class="modal-body" style="height:400px;">
+		Coming soon...
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	</div>
+</div>
+
+<div id="criteriaModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Les critères TechList</h3>
+	</div>
+	<div class="modal-body" style="height:120px;">
+		Afin de pouvoir figurer sur TechList, assurez-vous que votre société:<br/>- ait une activité directement liée à Internet<br/>- propose un service ouvert au public (pas de page de pré-lancement ou Beta fermées)<br/>	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
+	</div>
+</div>		<script src="/js/map.js" type="text/javascript"></script>
+
+<body class="body-map">
+
+	<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<ul class="nav horizontal-menu shareButtonsBox" id="shareButtonsBox-companies">
+				<li>
+					<a class="brand" href="/" class="btn-shake">
+						<span class="blue">TECH</span><span class="blue">LIST</span>
+						<span class="red" id="cityBrand">PARIS</span>
+					</a>
+				</li>
+				<li style="width:50px;height:10px;">
+					<div id="loadCentral">
+						<div><img src="/resources/images/loaderfb.gif"></div>
+					</div>
+				</li>
+				<li class="shareButtonPos">
+					<a href="https://twitter.com/techlist_in" class="twitter-follow-button" 
+					data-show-count="false" data-lang="en">Follow @techlist_in</a>
+				</li>
+														<li class="shareButton shareButtonPos shareButton-bordeaux" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant Bordeaux startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/bordeaux">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-bordeaux" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-bordeaux" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-bordeaux" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/bordeaux" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-bordeaux" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/bordeaux"></div>
+</li>														<li class="shareButton shareButtonPos shareButton-clermont-ferrand" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant Clermont-Ferrand startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/clermont-ferrand">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-clermont-ferrand" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-clermont-ferrand" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-clermont-ferrand" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/clermont-ferrand" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-clermont-ferrand" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/clermont-ferrand"></div>
+</li>														<li class="shareButton shareButtonPos shareButton-france" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant French startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/france">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-france" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-france" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-france" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/france" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-france" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/france"></div>
+</li>														<li class="shareButton shareButtonPos shareButton-grenoble" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant Grenoble startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/grenoble">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-grenoble" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-grenoble" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-grenoble" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/grenoble" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-grenoble" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/grenoble"></div>
+</li>														<li class="shareButton shareButtonPos shareButton-lille" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant Lille startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/lille">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-lille" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-lille" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-lille" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/lille" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-lille" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/lille"></div>
+</li>														<li class="shareButton shareButtonPos shareButton-lyon" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant Lyon startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/lyon">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-lyon" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-lyon" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-lyon" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/lyon" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-lyon" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/lyon"></div>
+</li>														<li class="shareButton shareButtonPos shareButton-metz" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant Metz startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/metz">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-metz" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-metz" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-metz" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/metz" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-metz" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/metz"></div>
+</li>														<li class="shareButton shareButtonPos shareButton-montpellier" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant Montpellier startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/montpellier">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-montpellier" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-montpellier" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-montpellier" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/montpellier" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-montpellier" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/montpellier"></div>
+</li>														<li class="shareButton shareButtonPos shareButton-nantes" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant Nantes startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/nantes">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-nantes" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-nantes" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-nantes" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/nantes" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-nantes" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/nantes"></div>
+</li>														<li class="shareButton shareButtonPos shareButton-paris" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant Paris startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/paris">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-paris" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-paris" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-paris" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/paris" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-paris" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/paris"></div>
+</li>														<li class="shareButton shareButtonPos shareButton-rennes" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant Rennes startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/rennes">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-rennes" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-rennes" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-rennes" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/rennes" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-rennes" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/rennes"></div>
+</li>														<li class="shareButton shareButtonPos shareButton-toulouse" style="margin-left:10px !important;">
+	<a href="https://twitter.com/share" class="twitter-share-button" 
+	data-text="The vibrant Toulouse startup ecosystem on a map." 
+	data-lang="en" data-url="http://techlist.in/toulouse">Tweet</a>
+</li>
+<li class="shareButton shareButtonPos shareButton-toulouse" style="margin-left:-15px !important;">
+	<div class="fb-like" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-toulouse" style="margin-left:10px !important;">
+	<div class="fb-send" data-href="https://www.facebook.com/TechList.in" data-send="false" data-layout="button_count" data-width="50" 
+	data-show-faces="false" data-font="lucida grande"></div>
+</li>
+<li class="shareButton shareButtonPos shareButton-toulouse" style="margin-left:10px !important;">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+	<script type="IN/Share" data-url="http://techlist.in/toulouse" data-counter="right"></script>
+</li>
+<li class="shareButton shareButtonPos shareButton-toulouse" style="margin-left:10px !important;">
+	<div class="g-plusone" data-size="medium" data-href="http://techlist.in/toulouse"></div>
+</li>							</ul>
+			<ul class="nav pull-right">
+								<li>
+					<a href="/new" style="height:40px;">
+						<div class="btn btn-primary btn-add btn-add-top"><i class='icon-plus' style='top:0px;'></i>Ajouter une organisation</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>	<div id="map_canvas"></div>
+
+	<div id="map-btn-aroundme" class="map-btn tooltiped" rel="tooltip" data-placement="bottom" title="Autour de moi">
+		<i class="icon-map-marker"></i>
+	</div>
+
+	<div id="map-btn-refresh" class="map-btn tooltiped" rel="tooltip" data-placement="bottom" title="Relancer une recherche ici">
+		<i class="icon-refresh"></i>
+	</div>
+
+	<div id="map-city-search" class="horizontal-menu horizontal-menu-cities">
+		<input id="map-city-search-input" class="googleAutocompleteInput" placeholder="Paris, France" style="display:none;">
+		<ul style="display:table;">
+			<li>
+				<a href="#" data-city="france" class="city-entry " 
+				data-dropdown="Choisissez une ville">France</a>
+			</li>			
+			<li style="padding:0px;">
+				<i class="icon-chevron-right" style="position:relative;top:0px;left:-3px;font-size:11px;"></i>
+			</li>
+			<li class="citiesDropdown">
+				<a href="#" class="citiesDropdownVal">
+					Paris				</a>
+				<div class="citiesDropdownBox">
+					<div class="citiesDropdownBoxInner">
+																					<a href="#" data-city="bordeaux" class="city-entry " 
+								data-dropdown="Bordeaux">
+									<div>Bordeaux</div>
+								</a>
+																												<a href="#" data-city="clermont-ferrand" class="city-entry " 
+								data-dropdown="Clermont-Ferrand">
+									<div>Clermont-Ferrand</div>
+								</a>
+																																									<a href="#" data-city="grenoble" class="city-entry " 
+								data-dropdown="Grenoble">
+									<div>Grenoble</div>
+								</a>
+																												<a href="#" data-city="lille" class="city-entry " 
+								data-dropdown="Lille">
+									<div>Lille</div>
+								</a>
+																												<a href="#" data-city="lyon" class="city-entry " 
+								data-dropdown="Lyon">
+									<div>Lyon</div>
+								</a>
+																												<a href="#" data-city="metz" class="city-entry " 
+								data-dropdown="Metz">
+									<div>Metz</div>
+								</a>
+																												<a href="#" data-city="montpellier" class="city-entry " 
+								data-dropdown="Montpellier">
+									<div>Montpellier</div>
+								</a>
+																												<a href="#" data-city="nantes" class="city-entry " 
+								data-dropdown="Nantes">
+									<div>Nantes</div>
+								</a>
+																												<a href="#" data-city="paris" class="city-entry active" 
+								data-dropdown="Paris">
+									<div>Paris</div>
+								</a>
+																												<a href="#" data-city="rennes" class="city-entry " 
+								data-dropdown="Rennes">
+									<div>Rennes</div>
+								</a>
+																												<a href="#" data-city="toulouse" class="city-entry " 
+								data-dropdown="Toulouse">
+									<div>Toulouse</div>
+								</a>
+																		</div>
+				</div>
+			</li>
+
+												<li style="display:none;">
+						<a href="#" data-city="bordeaux" class="city-entry ">Bordeaux</a>
+					</li>
+																<li style="display:none;">
+						<a href="#" data-city="clermont-ferrand" class="city-entry ">Clermont-Ferrand</a>
+					</li>
+																							<li style="display:none;">
+						<a href="#" data-city="grenoble" class="city-entry ">Grenoble</a>
+					</li>
+																<li style="display:none;">
+						<a href="#" data-city="lille" class="city-entry ">Lille</a>
+					</li>
+																<li style="display:none;">
+						<a href="#" data-city="lyon" class="city-entry ">Lyon</a>
+					</li>
+																<li style="display:none;">
+						<a href="#" data-city="metz" class="city-entry ">Metz</a>
+					</li>
+																<li style="display:none;">
+						<a href="#" data-city="montpellier" class="city-entry ">Montpellier</a>
+					</li>
+																<li style="display:none;">
+						<a href="#" data-city="nantes" class="city-entry ">Nantes</a>
+					</li>
+																<li style="display:none;">
+						<a href="#" data-city="paris" class="city-entry active">Paris</a>
+					</li>
+																<li style="display:none;">
+						<a href="#" data-city="rennes" class="city-entry ">Rennes</a>
+					</li>
+																<li style="display:none;">
+						<a href="#" data-city="toulouse" class="city-entry ">Toulouse</a>
+					</li>
+										<li>
+				<a href="#" class="separator">·</a>
+			</li>
+			<li>
+				<a href="/need">Voulez-vous TechList dans votre ville? Faites-le nous savoir</a>.
+			</li>
+		</ul>
+	</div>
+
+	
+	<div class="subcategories-box">
+		<div class="subcategories" id="subcategories-startups" data-category="startups">
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="advertising" 
+				data-subcategoryName="Publicité" id="subcategory-advertising">
+					<span>Publicité</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="b2b" 
+				data-subcategoryName="B2B" id="subcategory-b2b">
+					<span>B2B</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="bigdata" 
+				data-subcategoryName="Big data" id="subcategory-bigdata">
+					<span>Big data</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="content" 
+				data-subcategoryName="Site de contenu" id="subcategory-content">
+					<span>Site de contenu</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="developers" 
+				data-subcategoryName="Outils pour developpeurs" id="subcategory-developers">
+					<span>Outils pour developpeurs</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="ecommerce" 
+				data-subcategoryName="eCommerce" id="subcategory-ecommerce">
+					<span>eCommerce</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="education" 
+				data-subcategoryName="Education" id="subcategory-education">
+					<span>Education</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="finance" 
+				data-subcategoryName="Finance" id="subcategory-finance">
+					<span>Finance</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="gaming" 
+				data-subcategoryName="Jeux" id="subcategory-gaming">
+					<span>Jeux</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="green" 
+				data-subcategoryName="Environnemental" id="subcategory-green">
+					<span>Environnemental</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="health" 
+				data-subcategoryName="Santé" id="subcategory-health">
+					<span>Santé</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="location" 
+				data-subcategoryName="Outils de proximité" id="subcategory-location">
+					<span>Outils de proximité</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="marketplaces" 
+				data-subcategoryName="Places de marché" id="subcategory-marketplaces">
+					<span>Places de marché</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="music" 
+				data-subcategoryName="Musique" id="subcategory-music">
+					<span>Musique</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="physical" 
+				data-subcategoryName="Produits physiques" id="subcategory-physical">
+					<span>Produits physiques</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="productivity" 
+				data-subcategoryName="Outils de productivité" id="subcategory-productivity">
+					<span>Outils de productivité</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="search" 
+				data-subcategoryName="Outils de recherche" id="subcategory-search">
+					<span>Outils de recherche</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="security" 
+				data-subcategoryName="Securité" id="subcategory-security">
+					<span>Securité</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="social" 
+				data-subcategoryName="Applications sociales" id="subcategory-social">
+					<span>Applications sociales</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="startups" data-subcategory="other_category" 
+				data-subcategoryName="Autres" id="subcategory-other_category">
+					<span>Autres</span>
+					<span class="floatRight count">0</span>
+				</div>
+					</div>
+		<div class="subcategories" id="subcategories-providers" data-category="providers">
+							<div href="#" class="subcategory cat-hoverable" data-category="providers" data-subcategory="website" 
+				data-subcategoryName="Conception de sites" id="subcategory-website">
+					<span>Conception de sites</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="providers" data-subcategory="marketing" 
+				data-subcategoryName="Marketing" id="subcategory-marketing">
+					<span>Marketing</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="providers" data-subcategory="legal" 
+				data-subcategoryName="Juridique" id="subcategory-legal">
+					<span>Juridique</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="providers" data-subcategory="accounting" 
+				data-subcategoryName="Comptabilité" id="subcategory-accounting">
+					<span>Comptabilité</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="providers" data-subcategory="fundraising" 
+				data-subcategoryName="Levée de fonds" id="subcategory-fundraising">
+					<span>Levée de fonds</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="providers" data-subcategory="recruitment" 
+				data-subcategoryName="Ressources humaines" id="subcategory-recruitment">
+					<span>Ressources humaines</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="providers" data-subcategory="consulting" 
+				data-subcategoryName="Consulting" id="subcategory-consulting">
+					<span>Consulting</span>
+					<span class="floatRight count">0</span>
+				</div>
+							<div href="#" class="subcategory cat-hoverable" data-category="providers" data-subcategory="other_provider" 
+				data-subcategoryName="Autres" id="subcategory-other_provider">
+					<span>Autres</span>
+					<span class="floatRight count">0</span>
+				</div>
+					</div>
+	</div>
+
+	<div id="navRight" class="navRightListShown">
+		<div id="navRightList" class="navRightColumn">
+			<div id="navRight-top">
+				<div id="navRight-top-header"></div>
+
+				<ul id="listCategories" class="navRight-section listEntries">
+										<li data-supercategory="companies" class="supercategory">
+						<div class="listEntry-inner">
+							<i class="icon-group icon-supercategory"></i>
+							<span class="text">Organisations</span>
+							<i class="icon-minus"></i>
+						</div>
+					</li>
+					<div id="listCategories-companies" class="listCategories">
+													<li data-category="all" id="listCategory-all" data-categoryName="Toutes les organisations"
+							class="listCategory ">
+								<div class="marker-active"></div>
+								<span class="floatRight count" style="z-index:11;">0</span>
+								<div class="listEntry-inner">
+									<i class="icon-globe"></i>
+									<span class="text" style="position:absolute;z-index:10;">
+										Toutes les organisations									</span>
+								</div>
+							</li>
+																				<li data-category="news" id="listCategory-news" data-categoryName="Nouvelles organisations"
+							class="listCategory ">
+								<div class="marker-active"></div>
+								<span class="floatRight count" style="z-index:11;">0</span>
+								<div class="listEntry-inner">
+									<i class="icon-refresh"></i>
+									<span class="text" style="position:absolute;z-index:10;">
+										Nouvelles organisations									</span>
+								</div>
+							</li>
+																				<li data-category="hiring" id="listCategory-hiring" data-categoryName="Organisations qui recrutent"
+							class="listCategory ">
+								<div class="marker-active"></div>
+								<span class="floatRight count" style="z-index:11;">0</span>
+								<div class="listEntry-inner">
+									<i class="icon-briefcase"></i>
+									<span class="text" style="position:absolute;z-index:10;">
+										Organisations qui recrutent									</span>
+								</div>
+							</li>
+															<li class="listCategory-separator"></li>
+																				<li data-category="startups" id="listCategory-startups" data-categoryName="Startups / Sociétés"
+							class="listCategory ">
+								<div class="marker-active"></div>
+								<span class="floatRight count" style="z-index:11;">0</span>
+								<div class="listEntry-inner">
+									<i class="icon-beaker"></i>
+									<span class="text" style="position:absolute;z-index:10;">
+										Startups / Sociétés									</span>
+								</div>
+							</li>
+																				<li data-category="providers" id="listCategory-providers" data-categoryName="Prestataires de service"
+							class="listCategory ">
+								<div class="marker-active"></div>
+								<span class="floatRight count" style="z-index:11;">0</span>
+								<div class="listEntry-inner">
+									<i class="icon-wrench"></i>
+									<span class="text" style="position:absolute;z-index:10;">
+										Prestataires de service									</span>
+								</div>
+							</li>
+																				<li data-category="incubators" id="listCategory-incubators" data-categoryName="Accélérateurs"
+							class="listCategory ">
+								<div class="marker-active"></div>
+								<span class="floatRight count" style="z-index:11;">0</span>
+								<div class="listEntry-inner">
+									<i class="icon-star"></i>
+									<span class="text" style="position:absolute;z-index:10;">
+										Accélérateurs									</span>
+								</div>
+							</li>
+																				<li data-category="investors" id="listCategory-investors" data-categoryName="Investisseurs"
+							class="listCategory ">
+								<div class="marker-active"></div>
+								<span class="floatRight count" style="z-index:11;">0</span>
+								<div class="listEntry-inner">
+									<i class="icon-money"></i>
+									<span class="text" style="position:absolute;z-index:10;">
+										Investisseurs									</span>
+								</div>
+							</li>
+																				<li data-category="coworking" id="listCategory-coworking" data-categoryName="Espaces de coworking"
+							class="listCategory ">
+								<div class="marker-active"></div>
+								<span class="floatRight count" style="z-index:11;">0</span>
+								<div class="listEntry-inner">
+									<i class="icon-home"></i>
+									<span class="text" style="position:absolute;z-index:10;">
+										Espaces de coworking									</span>
+								</div>
+							</li>
+																				<li data-category="other" id="listCategory-other" data-categoryName="Autres organisations"
+							class="listCategory ">
+								<div class="marker-active"></div>
+								<span class="floatRight count" style="z-index:11;">0</span>
+								<div class="listEntry-inner">
+									<i class="icon-bullhorn"></i>
+									<span class="text" style="position:absolute;z-index:10;">
+										Autres organisations									</span>
+								</div>
+							</li>
+																		</div>
+				</ul>
+				<div class="navRight-section" style="display:table;width:250px;padding:10px;">
+					<input type="text" placeholder="Chercher une organisation" id="inputSearch">
+				</div>
+			</div>
+			<div id="navRight-middle">
+				<ul id="listResults" class="navRight-section listEntries">
+					<li class="listEntry">
+						<div class="listEntry-inner">
+							Chargement en cours...						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="navRightEntry" class="navRightColumn"></div>
+	</div>
+
+	<div class="footer horizontal-menu horizontal-menu-map">
+		
+	<ul class="">
+					<li>
+				<a href="/language.php?lang=en">English</a>
+			</li>
+				<li>
+			<a href="#" class="separator">·</a>
+		</li>
+		<li>
+			<a href="#aboutModal" role="button" data-toggle="modal">A propos</a>
+		</li>
+		<li>
+			<a href="#" class="separator">·</a>
+		</li>
+		<li>
+			<a href="javascript:UserVoice.showPopupWidget();" id="feedbackBoxTrigger" class="feedback">Feedback</a>
+		</li>
+	</ul>
+	<ul class="" style="font-size:12px;">
+		<li>
+			<span>Made in France with</span>
+			<i class="icon-heart"></i>
+		</li>
+		<li>
+			<a href="#" class="separator">·</a>
+		</li>
+		<li>
+			TechList © 2013
+		</li>
+	</ul>
+
+</div>	
+</body>
+	<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=406913019393179";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37091249-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<script type="text/javascript">
+  var uvOptions = {};
+  (function() {
+    var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+    uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/XW70INSW0TTo5FtaZKzDDw.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+  })();
+</script>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 44297, domain: 'paristechlist.com' };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src',
+        (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+        "js/chartbeat.js");
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+<script type="text/javascript">
+  var _sf_async_config = { uid: 44297, domain: 'techlist.in' };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src',
+        (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+        "js/chartbeat.js");
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>		
+</html>

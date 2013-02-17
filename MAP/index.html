@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+
+
+
+__/\\\\\_____/\\\___/\\\________/\\\_________/\\\\\\\\\_        
+ _\/\\\\\\___\/\\\__\///\\\____/\\\/_______/\\\////////__       
+  _\/\\\/\\\__\/\\\____\///\\\/\\\/_______/\\\/___________      
+   _\/\\\//\\\_\/\\\______\///\\\/________/\\\_____________     
+    _\/\\\\//\\\\/\\\________\/\\\________\/\\\_____________    
+     _\/\\\_\//\\\/\\\________\/\\\________\//\\\____________   
+      _\/\\\__\//\\\\\\________\/\\\_________\///\\\__________  
+       _\/\\\___\//\\\\\________\/\\\___________\////\\\\\\\\\_ 
+        _\///_____\/////_________\///_______________\/////////__
+        
+        
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+
+<meta name="keywords" content="Mariages/Consommations energetiques/Economise 20€ par mois, Linky" />
+<meta name="description" content="" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css' />
+<link href='bootstrap/css/bootstrap.css' rel='stylesheet' type='text/css' />
+<link href='bootstrap/css/bootstrap-responsive.css' rel='stylesheet' type='text/css' />
+
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+<![endif]-->
+
+
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body>
+
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><a href="#">DATALOVE</a></h1>
+				<p>Map yours data, set your business<a href="#"></a></p>
+			</div>
+			<div id="menu">
+				<ul>
+					<li class="active"><a href="#" accesskey="1" title="">DATADIVINE</a></li>
+					<li><a href="#" accesskey="2" title="">MAP YOURS</a></li>
+					<li><a href="#" accesskey="3" title="">DATALOVERS</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div id="page" class="container">
+		<div id="banner"><a href="#">
+		
+		    <div id="search-area">
+		         
+		       
+		         <div id="search-container" >
+		             <form>     
+		                        <input type="search" class="search-query input-xxlarge" placeholder="ex : Lyon"
+		                               id="search-keyword" name="search-keyword" action="enter">
+		                        
+		                        <button type="submit"class="btn btn-success" value="+" id="button-keyword-submit"><i class="icon-search"></i></button>
+		             </form>
+
+		        </div>
+		    </div>
+		<div id="map" style="width: 900px; height: 400px"></div>
+		
+			<script src="leaflet.js"></script>
+			<script>
+		
+				var map = L.map('map').setView([51.505, -0.09], 13);
+		
+				L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+					maxZoom: 18,
+					attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+				}).addTo(map);
+		
+		
+				L.marker([51.5, -0.09]).addTo(map)
+					.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+		
+				L.circle([51.508, -0.11], 500, {
+					color: 'red',
+					fillColor: '#f03',
+					fillOpacity: 0.5
+				}).addTo(map).bindPopup("I am a circle.");
+		
+				L.polygon([
+					[51.509, -0.08],
+					[51.503, -0.06],
+					[51.51, -0.047]
+				]).addTo(map).bindPopup("I am a polygon.");
+		
+		
+				var popup = L.popup();
+		
+				function onMapClick(e) {
+					popup
+						.setLatLng(e.latlng)
+						.setContent("You clicked the map at " + e.latlng.toString())
+						.openOn(map);
+				}
+		
+				map.on('click', onMapClick);
+		
+			</script>
+		
+		
+		
+		
+		
+		</div>
+		<div id="three-column">
+			<div id="column1">
+				<p><a href="#"><img src="images/.jpeg" width="250" height="215" alt="" /></a></p>
+				<h2>Give</h2>
+				<p class="textcolonne">wdfundi</p>
+			</div>
+			
+			<div id="column2">
+				<p><a href="#"><img src="images/.jpeg" width="250" height="215" alt="" /></a></p>
+				<h2>Prés</h2>
+				<p class="textcolonne">vez d</p>
+			</div>
+			<div id="column3">
+				<p><a href="#"><img src="images/.jpeg" width="250" height="215" alt="" /></a></p>
+				<h2>Comp</h2>
+				<p class="textcolonne">is faire</p>
+			</div>
+		</div>
+		<div id="content">
+		
+	
+		
+			<h2>WELCOME</h2>
+			<p>This is <strong> DATALOVE</strong>, 
+			 <a href="link.org">YY</a>.   </p>
+			 
+			 
+			 <p>
+			 <img src="images/.jpg" usemap="#banniere" title="image réactive" alt="banniere réactive" />
+			 
+			 
+			 <map name="banniere" id="banniere">
+			 <area shape="rect" coords="20,260,250,320" href="http://www.journaldugeek.com/2012/10/17/google-street-view-datacenter/" alt="" />
+			 </map>
+			 </p>
+			 
+			 
+			 
+			 			
+			<h2>NEWS</h2>
+			<p>This is <strong> DATALOVE</strong>, 
+			 <a href="link.org">YY</a>.   The photos in this website are from <a href="link2.org"> </a>. YOYO </a> </p>
+			 
+			 
+			 <h2>FIND ME</h2>
+			 <p>This is <strong>DATALOVE</strong>, 
+			  <a href="link.org">YY</a>.    </p>
+			 
+			
+		</div>
+		
+		<div id="sidebar">
+			<h2>SIDEBAR</h2>
+			
+			
+			<ul class="style1">
+				<li class="first"><a href="#">G</a></li>
+				<li><a href="#">B</a></li>
+				<li><a href="#">RE</a></li>
+				<li><a href="#">C</a></li>
+				<li><a href="#">PROS</a></li>
+				
+			</ul>
+			
+			 <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+			
+			
+			
+			
+			<br />
+			<hr />	
+			
+			
+			
+			
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p>Copyright (c) 2012 Sitename.com. All rights reserved. Design by <a href="djoann.fal.com"></a>. Photos by <a href="photo. com">Djoann Fal</a>.</p>
+</div>
+</body>
+</html>
